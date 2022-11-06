@@ -1,4 +1,4 @@
-package me.study.java8_study.section01.sub01;
+package practice.java8.section01.sub01;
 
 // 함수형 인터페이스
 // 추상 메소드가 하나만 선언된 인터페이스

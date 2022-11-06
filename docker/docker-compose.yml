@@ -1,0 +1,15 @@
+version: "3"
+services:
+  db:
+    container_name: "local-db"
+    platform: linux/x86_64
+    image: mysql:8.0
+    ports:
+      - "3306:3306" # Host:Container
+    restart: always
+    volumes:
+      - "./mysqldata:/var/lib/mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234
+      MYSQL_DATABASE: java_practice
+      TZ: Asia/Seoul

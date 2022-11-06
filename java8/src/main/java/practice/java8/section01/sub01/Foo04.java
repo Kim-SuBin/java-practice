@@ -1,4 +1,4 @@
-package me.study.java8_study.section01.sub01;
+package practice.java8.section01.sub01;
 
 public class Foo04 {
     public static void main(String[] args) {
