@@ -16,7 +16,7 @@ public interface RunSomething {
      * 추상 메서드 내에 public 이 생략된 static 메서드를 정의할 수 있음
      */
     static void printName() {
-        System.out.println("RunSometing");
+        System.out.println("RunSomething");
     }
 
     /**
