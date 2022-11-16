@@ -19,7 +19,7 @@ public interface Name {
         System.out.println(getName().toUpperCase());
     }
 
-    // 해당 인스턴스나 타입 관련 헬퍼/유틸리티 메소드를 제공할 때는 static 메소드를 제공할 수 있다.
+    // 해당 인터페이스 타입 관련 헬퍼/유틸리티 메소드를 제공할 때는 static 메소드를 제공할 수 있다.
     static void printAnything() {
         System.out.println("Anything");
     }
