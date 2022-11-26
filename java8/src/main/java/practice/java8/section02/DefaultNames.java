@@ -1,5 +1,6 @@
 package practice.java8.section02;
 
+// 두 가지를 implements 한 경우
 public class DefaultNames implements Name, Names{
     String name;
 
