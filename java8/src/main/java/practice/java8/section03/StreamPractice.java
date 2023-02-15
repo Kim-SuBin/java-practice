@@ -35,5 +35,15 @@ public class StreamPractice {
         collect = names.parallelStream().filter(name -> name.startsWith("k")).map(String::toUpperCase)
                 .collect(Collectors.toList());
         collect.forEach(System.out::println); // KIM 출력
+
+        // 실제로 병렬 처리 되는지 확인해보자
+        collect = names.parallelStream().map((s) -> {
+                    System.out.println(s + " " + Thread.currentThread().getName()); // main, ForkJoinPool, ... 출력을 통해 병렬로 처리됨을 확인 가능
+                    return s.toUpperCase();
+                })
+                .collect(Collectors.toList());
+        collect.forEach(System.out::println); // KIM 출력
+
+        // 병렬 처리를 한다고 해서 반드시 속도가 빨라지는 것은 아니므로, 적용 시 성능 테스트를 권장한다!
     }
 }
