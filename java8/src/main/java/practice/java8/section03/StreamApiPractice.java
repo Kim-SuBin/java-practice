@@ -1,6 +1,7 @@
 package practice.java8.section03;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -25,6 +26,9 @@ public class StreamApiPractice {
         springClasses.stream().filter(Predicate.not(OnlineClass::isClosed))
                 .forEach(springClass -> System.out.println(springClass.getId()));
 
+        System.out.println("수업 이름만 모아서 스트림 만들기");
+        springClasses.stream().map(OnlineClass::getTitle)
+                .forEach(System.out::println);
 
         List<OnlineClass> javaClasses = new ArrayList<>();
         javaClasses.add(new OnlineClass(6, "The Java, Test", true));
@@ -34,5 +38,10 @@ public class StreamApiPractice {
         List<List<OnlineClass>> onlineClasses = new ArrayList<>();
         onlineClasses.add(springClasses);
         onlineClasses.add(javaClasses);
+
+        System.out.println("두 수업 목록에 들어있는 모든 수업 아이디 출력");
+        // flatMap 을 사용하면 리스트 내부에 있는 리스트들을 순서대로 꺼내서 stream 으로 실행
+        onlineClasses.stream().flatMap(Collection::stream)
+                .forEach(onlineClass -> System.out.println(onlineClass.getId()));
     }
 }
