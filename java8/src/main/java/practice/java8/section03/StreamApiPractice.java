@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamApiPractice {
@@ -54,6 +55,13 @@ public class StreamApiPractice {
         System.out.println("자바 수업 중 Test가 들어있는 수업이 있는지 확인");
         boolean isIncludeTest = javaClasses.stream().anyMatch(javaClass -> javaClass.getTitle().contains("Test"));
         System.out.println(isIncludeTest); // true 출력
+
+        System.out.println("스프링 수업 중 제목에 spring이 들어간 제목만 모아서 List 만들기");
+        List<String> titles = springClasses.stream()
+                .map(OnlineClass::getTitle) // 여기서 타이틀만 뽑아내기 때문에
+                .filter(title -> title.contains("spring")) // filter에 들어오는 데이터는 String 타입
+                .collect(Collectors.toList());
+        System.out.println(titles);
 
     }
 }
