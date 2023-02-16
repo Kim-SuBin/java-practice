@@ -51,5 +51,9 @@ public class StreamApiPractice {
                 .limit(10)
                 .forEach(System.out::println); // 20부터 29까지 출력
 
+        System.out.println("자바 수업 중 Test가 들어있는 수업이 있는지 확인");
+        boolean isIncludeTest = javaClasses.stream().anyMatch(javaClass -> javaClass.getTitle().contains("Test"));
+        System.out.println(isIncludeTest); // true 출력
+
     }
 }
