@@ -1,5 +1,7 @@
 package practice.java8.section04;
 
+import java.util.Optional;
+
 public class OnlineClass {
     private Integer id;
     private String title;
@@ -33,12 +35,8 @@ public class OnlineClass {
         return closed;
     }
 
-    public Progress getProgress() {
-        // progress가 null인 경우 처리 방법 1. 예외를 던진다 -> 스택트레이스를 찍어두기 때문에 비쌈
-//        if (this.progress == null) {
-//            throw new IllegalArgumentException();
-//        }
-        return progress; // progress가 null인 경우 처리 방법 2. null을 리턴한다. -> 클라이언트 코드에서 사용 시 주의해야 함
+    public Optional<Progress> getProgress() {
+        return Optional.ofNullable(progress);
     }
 
     public void setProgress(Progress progress) {
