@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class StreamApiPractice {
     public static void main(String[] args) {
@@ -43,5 +44,12 @@ public class StreamApiPractice {
         // flatMap 을 사용하면 리스트 내부에 있는 리스트들을 순서대로 꺼내서 stream 으로 실행
         onlineClasses.stream().flatMap(Collection::stream)
                 .forEach(onlineClass -> System.out.println(onlineClass.getId()));
+
+        System.out.println("10부터 1씩 증가하는 무한 스트림 중 앞 10개 빼고 최대 10개 출력");
+        Stream.iterate(10, i -> i + 1)
+                .skip(10)
+                .limit(10)
+                .forEach(System.out::println); // 20부터 29까지 출력
+
     }
 }
